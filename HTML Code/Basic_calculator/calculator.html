@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        div{
+            border: 2px solid black;
+            display: inline-block;
+            position: absolute;
+            top: 100px;
+            left: 400px;
+            box-shadow: 3px 3px 3px black;
+            padding: 50px 50px;
+            background-color:aqua ;
+            border-radius: 50px;
+          
+        }
+        h1{
+            text-align: center;
+            position: relative;
+            top: -30px;
+            
+           
+        }
+        #h1{
+            border: 2px solid black;
+            top: 10px;
+        }
+        button{
+            padding: 5px;
+            margin: 5px;
+        }
+        body{
+            background-color: antiquewhite;
+        }
+        #B1{
+            position: relative;
+            left: 50px;
+            top:-20px;
+        }
+        #B2{
+            position: relative;
+            top:-20px;
+            left: 80px;
+        }
+        button{
+            background-color: yellow;
+            border-radius: 10px;
+            color: black;
+            
+        }
+        button:hover{
+            background-color:pink;
+           
+        }
+        #n1,#n2{
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div>
+    <h1>Calculator</h1>
+    Enter first number:    <input type="number" name="" id="n1"><br><br>
+    Enter second number: <input type="number" name="" id="n2">
+    <h1 id="h1"></h1>
+    <button onclick=" add()" >Addition</button>
+    <button onclick="sub()">Substraction</button>
+    <button onclick="mult()">Multiplication</button><br><br>
+    <button onclick="div()" id="B1">Division</button>
+    <button onclick="rem()" id="B2">Reminder</button><br><pre></pre>
+   </div>
+
+
+   <script>
+       function add(){
+       var a=document.getElementById("n1").value;
+       var b=document.getElementById("n2").value;
+
+      var c=Number(a)+Number(b);
+       document.getElementById("h1").innerHTML=c;
+       }
+
+       function sub(){
+       var a=document.getElementById("n1").value;
+       var b=document.getElementById("n2").value;
+
+       var c=a-b;
+       document.getElementById("h1").innerHTML=c;
+       }
+
+       function mult(){
+       var a=document.getElementById("n1").value;
+       var b=document.getElementById("n2").value;
+
+       var c=a*b;
+       document.getElementById("h1").innerHTML=c;
+       }
+
+     
+
+       function div(){
+       var a=document.getElementById("n1").value;
+       var b=document.getElementById("n2").value;
+
+       var c=a/b;
+       document.getElementById("h1").innerHTML=c;
+       }
+
+       function rem(){
+       var a=document.getElementById("n1").value;
+       var b=document.getElementById("n2").value;
+
+       var c=a%b;
+       document.getElementById("h1").innerHTML=c;
+       }
+   </script>
+</body>
+</html>
