@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey Form</title>
+
+  <style>
+    #surveyForm{
+      align-items: center;
+      position: absolute;
+      left: 600px;
+      top: 100px;
+      line-height: 30px;
+      border: 2px solid black;
+      padding: 20px;
+      background-color: rgb(108, 218, 218);
+      font-size: 20px;
+      border-radius: 10px;
+     
+    }
+  </style>
+</head>
+<body>
+  <form id="surveyForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" required><br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" required><br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" required><br>
+
+    <label for="country">Country:</label>
+    <select id="country" required>
+      <option value="">Select a country</option>
+      <option value="USA">India</option>
+      <option value="Canada">Canada</option>
+      
+    </select><br>
+
+    <label>Gender:</label><br>
+    <input type="checkbox" id="male" name="gender" value="Male">
+    <label for="male">Male</label>
+    <input type="checkbox" id="female" name="gender" value="Female">
+    <label for="female">Female</label><br>
+
+    <label for="profession">Profession:</label>
+    <input type="text" id="profession" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" required><br>
+
+    <button type="submit" id="submitButton">Submit</button>
+    <button type="reset">Reset</button>
+  </form>
+
+  <div id="popup" style="display: none;">
+    <h2>Survey Submission</h2>
+    <p>First Name: <span id="popupFirstName"></span></p>
+    <p>Last Name: <span id="popupLastName"></span></p>
+    <p>Date of Birth: <span id="popupDob"></span></p>
+    <p>Country: <span id="popupCountry"></span></p>
+    <p>Gender: <span id="popupGender"></span></p>
+    <p>Profession: <span id="popupProfession"></span></p>
+    <p>Email: <span id="popupEmail"></span></p>
+    <p>Mobile Number: <span id="popupMobile"></span></p>
+    <button id="closePopup">Close</button>
+  </div>
+
+  <script>
+    document.getElementById('surveyForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const dob = document.getElementById('dob').value;
+      const country = document.getElementById('country').value;
+      const gender = Array.from(document.querySelectorAll('input[name="gender"]:checked')).map(checkbox => checkbox.value);
+      const profession = document.getElementById('profession').value;
+      const email = document.getElementById('email').value;
+      const mobile = document.getElementById('mobile').value;
+
+      
+      document.getElementById('popupFirstName').textContent = firstName;
+      document.getElementById('popupLastName').textContent = lastName;
+      document.getElementById('popupDob').textContent = dob;
+      document.getElementById('popupCountry').textContent = country;
+      document.getElementById('popupGender').textContent = gender.join(', ');
+      document.getElementById('popupProfession').textContent = profession;
+      document.getElementById('popupEmail').textContent = email;
+      document.getElementById('popupMobile').textContent = mobile;
+
+      
+      document.getElementById('popup').style.display = 'block';
+    });
+
+    document.getElementById('closePopup').addEventListener('click', function () {
+      
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('surveyForm').reset();
+    });
+  </script>
+</body>
+</html>
